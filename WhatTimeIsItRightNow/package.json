@@ -1,0 +1,23 @@
+{
+  "name": "com.jooapa.wtiirn",
+  "displayName": "wtiirn",
+  "version": "1.0.0",
+  "description": "Don't know what time it is? Ask the app!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "Jooapa",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "cordova-browser": "^6.0.0"
+  },
+  "cordova": {
+    "platforms": [
+      "browser"
+    ]
+  }
+}
