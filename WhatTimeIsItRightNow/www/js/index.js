@@ -1,9 +1,10 @@
 var div= document.getElementById("loadingText");
 var animationStopped = false;
+var timesAnimationRuns = 1;
 
 function setTime(){
     var hours = new Date().getHours();
-    var minutes = new Date().getMinutes();
+    var minutes = new Date().getMinutes().toString().padStart(2, '0');
     var time = hours + ":" + minutes;
 
     div.innerHTML = time;
@@ -19,7 +20,7 @@ function animationText() {
       div.innerHTML = text[i];
       i = (i + 1) % text.length; // use modulus operator to cycle through array
       counter++;
-      if (counter === 9) {
+      if (counter === timesAnimationRuns) {
         clearInterval(intervalId);
         startTime();
       }
