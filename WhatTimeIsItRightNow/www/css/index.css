@@ -23,6 +23,15 @@ html, body{
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
 }
+#abs{
+    position: absolute;
+    display: grid;
+    align-items: end;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    color: #0000005d;
+}
 #contain{
     width: 100vw;
     height: 100vh;
@@ -52,7 +61,6 @@ html, body{
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
 }
 #menuContain{
     position: relative;
@@ -65,23 +73,23 @@ html, body{
     width: 90%;
     border-radius: 60px 60px 0 0;
     backdrop-filter: blur(10px);
+    box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.5);
 }
 .menuContainOpen{
     animation-name: menuContainOpen;
     animation-duration: 0.2s;
     animation-timing-function: cubic-bezier(.84,.99,.69,1.06);
-    height: 40vmin;
-    box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.5);
+    height: 100vh;
 }
 .menuContainClose{
     animation-name: menuContainClose;
-    animation-duration: 0.2s;
+    animation-duration: 0.7s;
     animation-timing-function: cubic-bezier(.84,.99,.69,1.06);
-    height: 0;
+    height: 300vh;
     box-shadow: 0 20px 10px 0 rgba(0, 0, 0, 0.5);
 }
 .menuContainClosed{
-    height: 0;
+    height: 300vh;
     box-shadow: 0 20px 10px 0 rgba(0, 0, 0, 0.5);
 }
 
@@ -108,23 +116,18 @@ html, body{
 
 @keyframes menuContainOpen{
     0%{
-        height: 0;
-        box-shadow: 0 20px 10px 0 rgba(0, 0, 0, 0.5);
+        height: 300vh;
     }
     100%{
-        height: 40vmin;
-        box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.5);
-
+        height: 100vh;
     }
 }
 @keyframes menuContainClose{
     0%{
-        height: 40vmin;
-        box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.5);
+        height: 100vh;
     }
     100%{
-        height: 0;
-        box-shadow: 0 20px 10px 0 rgba(0, 0, 0, 0.5);
+        height: 300vh;
     }
 }
 
@@ -157,3 +160,14 @@ html, body{
     }
 }
 
+#upperMenu{
+    position: absolute;
+    display: none;
+    grid-template-rows: 1fr;
+    align-items: center;
+    justify-items: center;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}

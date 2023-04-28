@@ -18,7 +18,7 @@ crnResponse = parseInt(crnResponse);
 timesAnimationRuns = parseInt(timesAnimationRuns);
 
 var responseDiv = document.getElementById("currentResponseText");
-responseDiv.innerHTML = "Current response time: " + crnResponse + "x";
+responseDiv.innerHTML = "Current response to Time&trade;: " + crnResponse + "x";
 checkMax();
 
 document.getElementById("menubtn").addEventListener("click", function(){
@@ -28,7 +28,7 @@ document.getElementById("menubtn").addEventListener("click", function(){
         localStorage.setItem('timesAnimationRuns', timesAnimationRuns);
         localStorage.setItem('crnResponse', crnResponse);
 
-        responseDiv.innerHTML = "Current response time: " + crnResponse + "x";
+        responseDiv.innerHTML = "Current response Time&trade;: " + crnResponse + "x";
     }
     else{
         checkMax();
@@ -39,9 +39,9 @@ document.getElementById("menubtn").addEventListener("click", function(){
 function checkMax() {
     if(crnResponse >= 9){
         var div = document.getElementById("currentResponseText");
-        div.innerHTML = "Current response time: <span style='color: #ff5e12;'>max</span>";
+        div.innerHTML = "Current response to Time&trade;: <span style='color: #ff5e12;'>max</span>";
         btn = document.getElementById("menubtn");
-        btn.innerHTML = "Cannot by more Time";
+        btn.innerHTML = "Cannot by more Time&trade;";
         //set different active color
         btn.style.setProperty('--btnActivebg', '#ff000099');
     }
@@ -86,6 +86,56 @@ function startTime() {
 
 
 window.onload = function(){
-
+    onstart();
     animationText();
+}
+
+document.getElementById("resetbtn").addEventListener("click", restart);
+
+function restart(){
+    checkLocalStorage('reset', 0);
+    var reset = localStorage.getItem('reset');
+    reset = parseInt(reset);
+    reset++;
+    localStorage.setItem('reset', reset);
+
+    console.log("restart");
+    var div = document.getElementById("menu");
+
+    localStorage.setItem('crnResponse', 0);
+    localStorage.setItem('timesAnimationRuns', 10);
+        div.classList.remove("menuContainClosed");
+        div.classList.remove("menuContainOpen");
+        div.classList.add("menuContainClose");
+    location.reload();
+}
+
+onstart = function(){
+    checkLocalStorage('total', 0);
+
+    total = localStorage.getItem('total');
+    total = parseInt(total);
+    total++;
+    localStorage.setItem('total', total);
+    document.getElementById("timesOpened").innerHTML = "times opened: " + total;
+
+    var reset = localStorage.getItem('reset');
+    document.getElementById("reset").innerHTML = "times reseted: " + reset;
+
+    checkLocalStorage('timeSpent', 0);
+    setInterval(function() {
+        seconds = localStorage.getItem('timeSpent');
+        document.getElementById("timeSpent").innerHTML = "Time&trade; spent: " + seconds + " sec";
+        seconds = parseInt(seconds); 
+        seconds++;
+        seconds += localStorage.setItem('timeSpent', seconds)
+    }, 1000); // update about every second
+
+}
+
+function checkLocalStorage(name, value){
+    if (localStorage.getItem(name) === null || localStorage.getItem(name) === undefined || localStorage.getItem(name) === "NaN"){
+        localStorage.setItem(name, value);
+    }
+    return localStorage.getItem(name);
 }

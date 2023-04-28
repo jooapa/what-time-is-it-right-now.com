@@ -33,7 +33,7 @@ function handleTouchMove(evt) {
             /* left swipe */
         }                       
     } else {
-        var div = document.getElementById("menuContain");
+        var div = document.getElementById("menu");
         if ( yDiff > 1 ) {
             /* down swipe */ 
             console.log("Swipe")
