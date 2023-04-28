@@ -37,12 +37,14 @@ document.getElementById("menubtn").addEventListener("click", function(){
 });
 
 function checkMax() {
-    var div = document.getElementById("currentResponseText");
-    div.innerHTML = "Current response time: <span style='color: #ff5e12;'>max</span>";
-    btn = document.getElementById("menubtn");
-    btn.innerHTML = "Cannot by more Time";
-    //set different active color
-    btn.style.setProperty('--btnActivebg', '#ff000099');
+    if(crnResponse >= 9){
+        var div = document.getElementById("currentResponseText");
+        div.innerHTML = "Current response time: <span style='color: #ff5e12;'>max</span>";
+        btn = document.getElementById("menubtn");
+        btn.innerHTML = "Cannot by more Time";
+        //set different active color
+        btn.style.setProperty('--btnActivebg', '#ff000099');
+    }
 }
 
 function setTime(){
