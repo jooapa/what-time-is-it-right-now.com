@@ -33,12 +33,18 @@ function handleTouchMove(evt) {
             /* left swipe */
         }                       
     } else {
-        if ( yDiff > 0 ) {
+        var div = document.getElementById("menuContain");
+        if ( yDiff > 1 ) {
             /* down swipe */ 
             console.log("Swipe")
+            div.classList.remove("menuContainClosed");
+            div.classList.remove("menuContainClose");
+            div.classList.add("menuContainOpen");
         } else { 
             /* up swipe */
-            
+            div.classList.remove("menuContainClosed");
+            div.classList.remove("menuContainOpen");
+            div.classList.add("menuContainClose");
         }                                                                 
     }
     /* reset values */

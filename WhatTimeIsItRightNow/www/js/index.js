@@ -1,6 +1,49 @@
 var div= document.getElementById("loadingText");
 var animationStopped = false;
-var timesAnimationRuns = 1;
+//set variables
+var  crnResponse = localStorage.getItem('crnResponse');
+var  timesAnimationRuns = localStorage.getItem('timesAnimationRuns');
+if (crnResponse === null){
+    crnResponse = 0;
+    localStorage.setItem('crnResponse', crnResponse);
+}
+if (timesAnimationRuns === null){
+    timesAnimationRuns = 10;
+    localStorage.setItem('timesAnimationRuns', timesAnimationRuns);
+}
+//
+var crnResponse = localStorage.getItem('crnResponse');
+var timesAnimationRuns = localStorage.getItem('timesAnimationRuns');
+crnResponse = parseInt(crnResponse);
+timesAnimationRuns = parseInt(timesAnimationRuns);
+
+var responseDiv = document.getElementById("currentResponseText");
+responseDiv.innerHTML = "Current response time: " + crnResponse + "x";
+checkMax();
+
+document.getElementById("menubtn").addEventListener("click", function(){
+    if (crnResponse <= 8){
+        crnResponse = 11 - timesAnimationRuns;
+        timesAnimationRuns--
+        localStorage.setItem('timesAnimationRuns', timesAnimationRuns);
+        localStorage.setItem('crnResponse', crnResponse);
+
+        responseDiv.innerHTML = "Current response time: " + crnResponse + "x";
+    }
+    else{
+        checkMax();
+    }
+
+});
+
+function checkMax() {
+    var div = document.getElementById("currentResponseText");
+    div.innerHTML = "Current response time: <span style='color: #ff5e12;'>max</span>";
+    btn = document.getElementById("menubtn");
+    btn.innerHTML = "Cannot by more Time";
+    //set different active color
+    btn.style.setProperty('--btnActivebg', '#ff000099');
+}
 
 function setTime(){
     var hours = new Date().getHours();
@@ -25,6 +68,7 @@ function animationText() {
         startTime();
       }
     }, 700);
+    
 }
 
 function startTime() {
@@ -40,5 +84,6 @@ function startTime() {
 
 
 window.onload = function(){
+
     animationText();
 }
