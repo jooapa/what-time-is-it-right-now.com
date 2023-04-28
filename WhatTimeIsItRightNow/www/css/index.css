@@ -89,8 +89,8 @@ html, body{
     font-family: "best font", sans-serif;
     color: #ffffff;
     font-size: 5vmin;
-    width: 75vmin;
-    height: 15vmin;
+    width: 60vmin;
+    height: 120%;
     border-radius: 50px;
     background-color: #00000059;
     border: 0;
@@ -127,6 +127,7 @@ html, body{
         box-shadow: 0 20px 10px 0 rgba(0, 0, 0, 0.5);
     }
 }
+
 /* if screen height 300px */
 @media screen and (max-height: 400px) {
     .timeText{
