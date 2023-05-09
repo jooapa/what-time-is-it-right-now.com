@@ -1,5 +1,5 @@
 # What Time Is It Right Now?
-
+![TimeBanner](https://raw.githubusercontent.com/jooapa/what-time-is-it-right-now.com/main/repo.png)
 ## Description
 
 What Time Is It Right Now is a simple yet powerful app that shows you the current time in your local timezone, as well as more advanced statistics such as the time in other timezones, the number of seconds elapsed since midnight, and the percentage of the day that has already passed.
